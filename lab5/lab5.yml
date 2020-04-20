@@ -10,5 +10,5 @@
       with_items:
         - mlocate
         - strace
-        - java8
-        - php5
+        - java-1.8.0-openjdk
+        #- php5
