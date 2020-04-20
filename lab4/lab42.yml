@@ -1,0 +1,6 @@
+-  hosts: dbservers
+   name: Setting up the hostnames
+   tasks:
+     - hostname: 
+        name: "{{ hostname }}"
+       become: yes

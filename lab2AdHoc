@@ -1,0 +1,8 @@
+# Install httpd on the webservers
+
+ansible webservers -b -m yum -a "name=httpd state=present"
+--------------------------------------------------------------
+
+# Install mysql on the dbservers
+
+ansible dbservers -b -m yum -a "name=mysql state=present"

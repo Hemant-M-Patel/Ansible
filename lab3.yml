@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  vars_prompt:
+    - name: filename
+      prompt: "Please enter a file name"
+  tasks:
+    - name: checking whether file exists or not
+      stat:
+        path: ~/{{ filename }}
+      register: p
+
+    - debug:
+        msg: "File exists"
+      when: p.stat.exists
+
+    - name: Copying to remote host
+      command: scp -i ~/MyKP.pem ~/{{ filename }} ec2-user@ec2-3-87-103-11.compute-1.amazonaws.com:~/{{ filename }}.bak
+      when: p.stat.exists

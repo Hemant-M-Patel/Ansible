@@ -1,0 +1,24 @@
+---
+# - hosts: webservers
+#   become: true
+#   name: Install and Start httpd on webservers
+#   tasks:
+#    - yum: 
+#       name: httpd
+#       state: present
+#    - service: 
+#       name: httpd
+#       state: started
+#       enabled: yes
+
+- hosts: dbservers
+  become: true
+  name: Install and Start mysql on dbservers
+  tasks:
+   - yum: 
+      name: mysql
+      state: present
+   - service: 
+      name: mysql
+      state: started
+      enabled: yes
