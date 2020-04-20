@@ -1,4 +1,4 @@
-node01 ansible_ssh_host=192.168.86.44 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+node01 ansible_ssh_host=192.168.86.44 ansible_connection=ssh ansible_ssh_user=vagrant
 node02 ansible_ssh_host=ec2-52-91-85-65.compute-1.amazonaws.com ansible_ssh_user=ec2-user ansible_ssh_private_key_file=/home/adminuser/MyKP.pem
 
 [webservers]
@@ -7,3 +7,12 @@ node01
 node02
 [dbservers:vars]
 hostname=172.31.34.8
+
+
+
+
+
+
+
+
+#ansible_ssh_pass=vagrant#
