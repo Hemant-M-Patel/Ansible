@@ -1,5 +1,5 @@
 ---
-- hosts: node02
+- hosts: node01
   name: Installing packages on webservers using with_items and yum package
   tasks:
     - name: Use of with_items here

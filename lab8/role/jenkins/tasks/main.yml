@@ -1,0 +1,10 @@
+---
+# tasks file for jenkins
+
+- yum: pkg=net-tools state=installed
+- yum: pkg=wget state=installed
+- shell: sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+- shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+- yum: pkg=jenkins state=installed
+- shell : service jenkins start
+- shell: chkconfig jenkins on
