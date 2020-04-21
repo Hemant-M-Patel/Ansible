@@ -1,0 +1,19 @@
+
+
+
+"This file contains the information about CPU configurations, IP address, Netmask, OS Version and Distribution Name"
+-------------------------------------------------------------------------------------------------------------------------
+
+My hostname is {{ hostvars[inventory_hostname]['ansible_hostname'] }}
+
+Host IP = {{ hostvars[inventory_hostname]['ansible_all_ipv4_addresses'][0] }}
+
+Netmask = {{ hostvars[inventory_hostname]['ansible_default_ipv4']['netmask'] }}
+
+Distribution Name = {{ hostvars[inventory_hostname]['ansible_os_family'] }}
+
+OS Version = {{ hostvars[inventory_hostname].ansible_kernel.split('-')[0] }}
+
+CPU Configurations = {{ hostvars[inventory_hostname]['ansible_processor'][2] }} , Number of cores = {{ hostvars[inventory_hostname]['ansible_processor_cores'] }}
+
+----------------------------------------------------------------------------------------------------------------------------

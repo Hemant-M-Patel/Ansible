@@ -1,0 +1,22 @@
+---
+- name: copy a file to remote host /home/vagrant/facts
+  hosts: node01
+  gather_facts: yes
+  tasks:
+    - name: Getting CPU configurations, Ip address, netmask OS version, distribution name
+      become: yes
+      template:
+        src: template.j2
+        dest: /home/vagrant/facts
+
+
+
+- name: copy a file to remote host /home/ec2-user/facts
+  hosts: node02
+  gather_facts: yes
+  tasks:
+    - name: Getting CPU configurations, Ip address, netmask OS version, distribution name
+      become: yes
+      template:
+        src: template.j2
+        dest: /home/ec2-user/facts

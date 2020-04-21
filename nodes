@@ -6,7 +6,7 @@ node01
 [dbservers]
 node02
 [dbservers:vars]
-hostname=172.31.34.8
+hostname=hemant
 
 
 
