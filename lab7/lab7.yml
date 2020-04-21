@@ -1,0 +1,15 @@
+---
+- hosts: node01
+  name: To start httpd server on port 8080 after changing httpd.conf file
+  become: yes
+  tasks:
+    - name: Install httpd server
+      yum: name=httpd state=present
+
+    - name: Start httpd
+      service: name=httpd state=started enabled=yes
+
+    # The below portion is valid only if we do change in configuration file /etc/httpd/conf/httpd.conf
+    # We may change port at which this service listens to by changing the line: Listen 80
+    # - name: Reload httpd configuration
+    #   command: service httpd restart
