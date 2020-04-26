@@ -1,0 +1,8 @@
+---
+
+- name: Restart Zookeeper Service
+  command: systemctl zookeeper restart
+  
+- name: Restart Kafka Service
+  command: systemctl kafka restart
+

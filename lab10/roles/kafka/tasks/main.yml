@@ -33,3 +33,8 @@
 - command: systemctl start zookeeper
 - command: systemctl start kafka
   
+# - name: Update Kafka server.properties file
+#   copy: src=server.properties dest=/usr/local/kafka/config/
+#   notify:
+#     - Restart Zookeeper Service
+#     - Restart Kafka Service
