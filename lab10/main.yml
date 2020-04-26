@@ -1,0 +1,7 @@
+---
+- name: Kafka deployment
+  hosts: node01
+  become: yes
+  roles:
+    - dependancies
+    - kafka

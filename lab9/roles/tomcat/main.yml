@@ -1,0 +1,15 @@
+---
+# tasks file for dependancies
+- yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - java-1.8.0-openjdk
+
+# Tomcat installation
+- yum: name=tomcat state=present
+
+# - yum: pkg=tomcat-webapps tomcat-admin-webapps state=installed
+
+- shell : service tomcat start
+- shell: service tomcat enable

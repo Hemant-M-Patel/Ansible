@@ -1,0 +1,35 @@
+---
+- name: Downloading file for Kafka
+  unarchive:
+    src: http://www-us.apache.org/dist/kafka/2.4.0/kafka_2.13-2.4.0.tgz
+    dest: /usr/local/
+    remote_src: yes    
+
+- name: Moving folder content to /kafka
+  copy:
+    src: /usr/local/kafka_2.13-2.4.0/
+    dest: /usr/local/kafka
+    remote_src: yes
+
+- name: Recursively remove directory
+  file:
+    path: /usr/local/kafka_2.13-2.4.0
+    state: absent
+
+- name: Remove file (delete file)
+  file:
+    path: /usr/local/kafka_2.13-2.4.0.tgz
+    state: absent
+
+# Service files for Zookeeper and Kafka
+- template:
+    src: zookeeper.j2
+    dest: /etc/systemd/system/zookeeper.service
+- template:
+    src: kafka.j2
+    dest: /etc/systemd/system/kafka.service
+
+- command: systemctl daemon-reload
+- command: systemctl start zookeeper
+- command: systemctl start kafka
+  
